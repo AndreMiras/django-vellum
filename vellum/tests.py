@@ -19,13 +19,13 @@
 >>> post.categories.add(category)
 >>> post2.categories.add(category2)
 
->>> response = client.get(reverse('blog_index'))
+>>> response = client.get(reverse('vellum_index'))
 >>> response.context[0]['object_list']
 [<Post: DJ Ango>, <Post: Where my grails at?>]
 >>> response.status_code
 200
 
->>> response = client.get(reverse('blog_category_list'))
+>>> response = client.get(reverse('vellum_category_list'))
 >>> response.context[0]['object_list']
 [<Category: Django>, <Category: Rails>]
 >>> response.status_code
@@ -43,21 +43,21 @@
 >>> response.status_code
 200
 
->>> response = client.get(reverse('blog_search'), {'q': 'DJ'})
+>>> response = client.get(reverse('vellum_search'), {'q': 'DJ'})
 >>> response.context[0]['object_list']
 [<Post: DJ Ango>]
 >>> response.status_code
 200
->>> response = client.get(reverse('blog_search'), {'q': 'Holy'})
+>>> response = client.get(reverse('vellum_search'), {'q': 'Holy'})
 >>> response.context[0]['object_list']
 [<Post: Where my grails at?>]
 >>> response.status_code
 200
->>> response = client.get(reverse('blog_search'), {'q': ''})
+>>> response = client.get(reverse('vellum_search'), {'q': ''})
 >>> response.context[0]['message']
 'Search term was too vague. Please try again.'
 
->>> response = client.get(reverse('blog_detail', args=[2008, 'apr', 2, 'where']))
+>>> response = client.get(reverse('vellum_detail', args=[2008, 'apr', 2, 'where']))
 >>> response.context[0]['object']
 <Post: Where my grails at?>
 >>> response.status_code
