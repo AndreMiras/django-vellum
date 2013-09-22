@@ -59,6 +59,6 @@ urlpatterns = patterns('',
     ),
     url(r'^$',
         view=PostIndexView.as_view(),
-        name='vellum'
+        name='vellum_index'
     ),
 )
