@@ -55,9 +55,9 @@
 200
 >>> response = client.get(reverse('vellum_search'), {'q': ''})
 >>> response.context[0]['message']
-'Search term was too vague. Please try again.'
+'Search term was too vague, please try again.'
 
->>> response = client.get(reverse('vellum_detail', args=[2008, 'apr', 2, 'where']))
+>>> response = client.get(reverse('vellum_detail', args=[2008, '04', 2, 'where']))
 >>> response.context[0]['object']
 <Post: Where my grails at?>
 >>> response.status_code
